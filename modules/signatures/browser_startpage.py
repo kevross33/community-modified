@@ -24,7 +24,7 @@ class browser_startpage(Signature):
     minimum = "1.2"
 
     def run(self):
-        if self.check_write_key(pattern=".*\\\\SOFTWARE\\\\(Wow6432Node\\\\)?Microsoft\\\\Internet\\ Explorer\\\\Main\\\\Start\\ Page$", regex=True):
+        if self.check_write_key(pattern=".*\\\\Software\\\\(Wow6432Node\\\\)?Microsoft\\\\Internet\\ Explorer\\\\Main\\\\Start\\ Page$", regex=True):
             return True
 
         return False
