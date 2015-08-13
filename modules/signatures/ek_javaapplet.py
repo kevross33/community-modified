@@ -28,5 +28,5 @@ class Java_JS(Signature):
         else:
             buf = self.get_argument(call, "Script")
 
-        if re.match(".*\<applet.*code[ ]*=.*archive[ ]*=.*\<\/applet\>.*", buf, re.IGNORECASE):
+        if re.search(".*\<applet.*code[ ]*=.*archive[ ]*=.*\<\/applet\>.*", buf, re.IGNORECASE):
             return True
