@@ -2,7 +2,7 @@ from lib.cuckoo.common.abstracts import Signature
 
 class DisablesSafeBoot(Signature):
     name = "disables_safe_boot"
-    description = "Attempts to disable Safe Boot/Mode"
+    description = "Attempts to disable SafeBoot"
     severity = 3
     categories = ["stealth"]
     authors = ["Kevin Ross"]
