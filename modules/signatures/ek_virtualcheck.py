@@ -49,7 +49,9 @@ class Virtualcheck_JS(Signature):
                 "prl_sound",
                 "prl_prl_strg",
                 "prl_tg",
-                "prl_time"
+                "prl_time",
+                "Kaspersky.IeVirtualKeyboardPlugin"
+
             ]
 
         if call["api"] == "JsEval":
