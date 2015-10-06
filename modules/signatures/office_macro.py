@@ -76,5 +76,13 @@ class Office_Macro(Signature):
                         self.severity = 3
                         self.weight += 2
                         self.description += " The file also appears to have no content."
-
+        # Increase severity on documents with no edit time containing macros indicative of auto-created documents such as by the Bartalex Kit.
+            if "Metadata" in self.results["static"]:
+                if "SummaryInformation" in self.results["static"]["Metadata"]:
+                    time = self.results["static"]["Metadata"]["SummaryInformation"]["total_edit_time"]
+                    if time == "0":
+                        self.severity = 3
+                        self.weight += 2
+                        self.description += " The file also appears to have no edit time."
+                        
         return ret
