@@ -26,9 +26,6 @@ class NetworkCnCHTTP(Signature):
         post_noreferer = 0
         nouseragent = 0
         version1 = 0
-        low_params = 0
-        high_params = 0
-        useragent = 0
 
         # scoring
         cnc_score = 0
@@ -70,20 +67,6 @@ class NetworkCnCHTTP(Signature):
                     if req["version"] == "1.0":
                         version1 += 1
 
-                    for low_fidelity_params in low_fidelity_params:
-                        low_params += req["path"].count(low_fidelity_params)
-                    for low_fidelity_params in low_fidelity_params:
-                        low_params += req["body"].count(low_fidelity_params)
-                    for highrisk_params in highrisk_params:
-                        high_params += req["path"].count(highrisk_params)
-                    for highrisk_params in highrisk_params:
-                        high_params += req["body"].count(highrisk_params)
-
-                    for useragents in useragents:
-                        if useragents in req["user-agent"]:
-                            useragent += 1
-                            cnc_count += 1
-
                     if cnc_score > 2:
                         cnc_count += 1
 
@@ -99,19 +82,6 @@ class NetworkCnCHTTP(Signature):
 
         if version1 > 0:
             self.data.append({"http_version_old" : "HTTP traffic uses version 1.0" })
-            self.weight += 1
-
-        if high_params > 0:
-            self.data.append({"malicious_params" : "Detected commonly used malicious parameter names in the HTTP request URI or body" })
-            self.severity = 3
-            self.weight += 1
-
-        if low_params > 0:
-            self.data.append({"suspicious_params" : "Detected suspicious parameters names in the HTTP request URI or body" })
-            self.weight += 1
-
-        if useragent > 0:
-            self.data.append({"useragent" : "A suspicious user agent was seen in HTTP traffic" })
             self.weight += 1
 
         if cnc_count > 0:
