@@ -23,7 +23,7 @@ class NetworkCnCHTTP(Signature):
             "^http://.*\.microsoft\.com/.*",
             "^http://.*\.windowsupdate\.com/.*",
             "^http://.*\.adobe\.com/.*",
-            "^http://crl.*",
+            "^http://.*\.crl$",
             "^http://ocsp\..*",
             ]
 
