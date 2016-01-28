@@ -105,7 +105,7 @@ class Office_Macro(Signature):
                 if "SummaryInformation" in self.results["static"]["office"]["Metadata"]:
                     author = self.results["static"]["office"]["Metadata"]["SummaryInformation"]["author"]
                     lastauthor = self.results["static"]["office"]["Metadata"]["SummaryInformation"]["last_saved_by"]
-                    known_authors = ["Alex","Microsoft Office","Adder"]
+                    known_authors = ["Alex","Microsoft Office","Adder","Microsoft Office"]
                     numerical_author = re.compile("^[0-9]{1,}$")
                     for known_authors in known_authors:
                         if author == known_authors:
